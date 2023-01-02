@@ -1,0 +1,12 @@
+.debug-red {
+    border: 2px solid red;
+}
+.debug-blue {
+    border: 2px solid blue;
+}
+.debug-yellow {
+    border: 2px solid yellow;
+}
+.saturation-0 {
+    filter: saturate(0%) blur(2px);
+}
