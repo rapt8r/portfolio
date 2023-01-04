@@ -13,24 +13,43 @@
     <link rel="stylesheet" href="{% static 'www/css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'www/css/styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
-<div class="container-lg vh-100 d-flex align-items-center">
+<!--Hero section -->
+<div class="container vh-100 d-flex align-items-center">
     <div class="row align-items-center">
-        <div class="col-lg-7 text-center text-lg-start">
-            <h1 class="display-4 fw-bold lh-1 mb-3">Cześć, nazywam się <br>Dominik Ciupa</h1>
-            <p class="col-lg-10 fs-4">Jestem Junior Python Developerem szukającym pracy w świecie I.T.</p>
+        <div id="hero-text" class="col-md-6 text-center text-md-start">
+            <i id="waving-hand-icon" class="fst-normal display-1 d-none d-md-inline-flex">👋</i>
+            <h1 class="display-4 fw-bold lh-1 mb-3">Cześć, nazywam się <br><span>Dominik Ciupa</span></h1>
+            <p class="fs-4">Jestem Junior Python Developerem szukającym pracy w świecie I.T.</p>
+            <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Poznaj mnie</button>
         </div>
-        <div class="col-md-10 mx-auto col-lg-5">
+        <div class="col-8 col-md-6 mx-auto">
             <img id='hero-image' src="{% static 'www/img/hero-image.png' %}" class="img-fluid">
+        </div>
+    </div>
+</div>
+<!--About me -->
+<div class="container px-5 d-flex align-items-center">
+    <div class="row flex-row d-flex align-items-center flex-row-reverse gx-5">
+        <div class="col-md-6 col-lg-8 text-md-start text-center">
+            <h1 class="display-4 fw-bold lh-1 mb-3">CV</h1>
+            <p class="fs-4">Zastanawiasz się, czy możemy współpracować? Sprawdź moje CV i zobacz, co mogę Ci zaoferować.</p>
+            <button id="btn-download-cv" type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Pobierz CV</button>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <img src="{% static 'www/img/CV.JPG'%}" class="img-fluid shadow ">
         </div>
     </div>
 </div>
 <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <script src="{% static 'www/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'www/js/anime.js' %}"></script>
+<script src="{% static 'www/js/confetti.min.js' %}"></script>
 <script src="{% static 'www/js/animations.js' %}"></script>
 </body>
 </html>

@@ -1,62 +1,37 @@
-// let test = anime({
-//     targets: hero_picture,
-//     translateY: function() {
-//       return anime.random(10, 20);
-//     },
-//     duration: function() {
-//       return anime.random(1000, 2000);
-//     },
-//     rotate: function() {
-//       return anime.random(-20, 20);
-//     },
-//     direction: 'alternate',
-//     loop: true,
-//     easing: 'easeInOutSine',
-// })
+if (Cookies.get('visited')) {
+    console.log('Odwiedzono')
+}
+else {
+    animated_div = document.getElementById('hero-text');
+    classlist = animated_div.classList.add('animate__animated');
+    classlist = animated_div.classList.add('animate__fadeInLeft');
+}
+let wavingHandShakeAnimation = anime({
+    targets: '#waving-hand-icon',
+    rotate: 15,
+    autoplay: false,
+    direction: 'alternate',
+    loop: true,
+    easing: 'easeInOutSine',
+});
 
-function randomNameShake() {
-    anime({
-        targets: document.getElementById('hero-name'),
-        translateX: function () {
-            return anime.random(-1, 1);
-        },
-        translateY: function () {
-            return anime.random(-1, 1);
-        },
-        rotate: function () {
-            return anime.random(-0.5, 0.5);
-        },
-        easing: 'easeInOutBack',
-        duration: function () {
-            return anime.random(200, 1250);
-        },
-        delay: function () {
-            return anime.random(0, 50);
-        },
-        complete: randomNameShake
-    });
-}
-function randomIconsShake() {
-    anime({
-        targets: document.getElementsByClassName('tech-icon'),
-        translateX: function () {
-            return anime.random(-25, 50);
-        },
-        translateY: function () {
-            return anime.random(-25, 50);
-        },
-        rotate: function () {
-            return anime.random(-25, 25);
-        },
-        easing: 'easeInOutBack',
-        duration: function () {
-            return anime.random(1000, 1250);
-        },
-        delay: function () {
-            return anime.random(0, 1500);
-        },
-        complete: randomIconsShake
-    });
-}
-randomNameShake();
-randomIconsShake();
+let wavingHandInAnimation = anime({
+    targets: '#waving-hand-icon',
+    keyframes: [
+        {translateY: [-50, 0], opacity: [0, 1], duration: 1500},
+    ],
+    complete: function () {
+        wavingHandShakeAnimation.play();
+    },
+});
+wavingHandInAnimation.play();
+let confetti = new Confetti('btn-download-cv');
+
+// Edit given parameters
+confetti.setCount(75);
+confetti.setSize(1);
+confetti.setPower(10);
+confetti.setFade(true);
+confetti.destroyTarget(false);
+
+Cookies.set('visited', true)
