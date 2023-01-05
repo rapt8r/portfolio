@@ -20,7 +20,7 @@
 <div class="container vh-100 d-flex align-items-center">
     <div class="row align-items-center">
         <div id="hero-text" class="col-md-6 text-center text-md-start">
-            <i id="waving-hand-icon" class="fst-normal display-1 d-none d-md-inline-flex">👋</i>
+            <i id="waving-hand-icon" class="fst-normal display-1 d-none d-md-inline-flex py-2">👋</i>
             <h1 class="display-4 fw-bold lh-1 mb-3">Cześć, nazywam się <br><span>Dominik Ciupa</span></h1>
             <p class="fs-4">Jestem Junior Python Developerem szukającym pracy w świecie I.T.</p>
             <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Poznaj mnie</button>
@@ -30,18 +30,95 @@
         </div>
     </div>
 </div>
-<!--About me -->
-<div class="container px-5 d-flex align-items-center">
+<!-- About me -->
+<div class="container d-flex align-items-center py-5">
+    <div class="row flex-row-reverse d-flex align-items-center">
+        <div class="col-md-6 text-md-start text-center">
+            <h1 class="display-4 fw-bold lh-1 mb-3">O mnie</h1>
+            <p class="fs-4">Uwielbiam poznawać nowe technologie i szukam wszelkich możliwości, żeby rozwijać swoje
+                umiejętności.
+
+                Ukończyłem 8-miesięczny kurs Python od Podstaw organizowany przez Software Development Academy.
+                Dzięki
+                temu zdobyłem solidne podstawy programowania, a także poznałem różne narzędzia i metodykę pracy
+                zespołowej.</p>
+            <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Dowiedz się
+                więcej
+            </button>
+        </div>
+        <div class="col-md-6 h-100">
+        </div>
+    </div>
+</div>
+<div class="container my-5" id="custom-cards">
+    <h2 class="pb-2 fw-bold display-4">Projekty</h2>
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+                 style="background-image: url('{% static 'www/img/project-cv-img.jpg' %}'); background-size: cover; background-">
+                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                    <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Portfolio</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--CV -->
+<div class="container d-flex align-items-center py-5">
     <div class="row flex-row d-flex align-items-center flex-row-reverse gx-5">
         <div class="col-md-6 col-lg-8 text-md-start text-center">
             <h1 class="display-4 fw-bold lh-1 mb-3">CV</h1>
-            <p class="fs-4">Zastanawiasz się, czy możemy współpracować? Sprawdź moje CV i zobacz, co mogę Ci zaoferować.</p>
-            <button id="btn-download-cv" type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Pobierz CV</button>
+            <p class="fs-4">Zastanawiasz się, czy możemy współpracować? Sprawdź moje CV i zobacz, co mogę Ci
+                zaoferować.</p>
+            <button id="btn-download-cv" type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Pobierz CV
+            </button>
         </div>
         <div class="col-md-6 col-lg-4">
-            <img src="{% static 'www/img/CV.JPG'%}" class="img-fluid shadow ">
+            <img src="{% static 'www/img/CV.JPG' %}" class="img-fluid shadow ">
         </div>
     </div>
+</div>
+<!--Socials -->
+<div class="container">
+    <footer class="py-5">
+        <div class="row">
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Skróty</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Kontakt</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Projekty</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">CV</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">O mnie</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Znajdź mnie</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><i
+                            class="bi bi-linkedin px-1"></i>LinkedIn</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><i
+                            class="bi bi-github px-1"></i>Github</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-5 offset-md-2 mb-3">
+                <form>
+                    <h5>Kontakt</h5>
+                    <p>Monthly digest of what's new and exciting from us.</p>
+                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                        <label for="newsletter1" class="visually-hidden">Email address</label>
+                        <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+            <p>&copy; 2023 Dominik Ciupa</p>
+        </div>
+    </footer>
 </div>
 <!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"
