@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from www.views import IndexPage
+from www.views import IndexPage, ProjectPage, DownloadCVPage
 from django.conf.urls.static import static
 from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexPage.as_view())
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', IndexPage.as_view(), name='index-page'),
+    path('download-cv/', DownloadCVPage.as_view(), name='download-cv'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

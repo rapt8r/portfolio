@@ -17,7 +17,6 @@ let wavingHandShakeAnimation = anime({
     easing: 'easeInOutSine',
 });
 
-
 let wavingHandInAnimation = anime({
     targets: '#waving-hand-icon',
     keyframes: [
@@ -28,13 +27,5 @@ let wavingHandInAnimation = anime({
     },
 });
 wavingHandInAnimation.play();
-let confetti = new Confetti('btn-download-cv');
-
-// Edit given parameters
-confetti.setCount(75);
-confetti.setSize(1);
-confetti.setPower(10);
-confetti.setFade(true);
-confetti.destroyTarget(false);
 
 Cookies.set('visited', true)

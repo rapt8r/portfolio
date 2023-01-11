@@ -46,21 +46,41 @@
                 więcej
             </button>
         </div>
-        <div class="col-md-6 h-100">
+        <div class="col-md-6 justify-content-center d-flex">
+            <img src="{% static 'www/svg/about-me-ilustration.svg' %}" class="img-fluid w-75 h-75">
         </div>
     </div>
 </div>
-<div class="container my-5" id="custom-cards">
+<!-- Skills -->
+<div class="container my-5">
+    <div class="row justify-content-center justify-content-md-start">
+        <h2 class="pb-2 fw-bold display-4">Umiejętności</h2>
+        <p class="fs-4">Używam tych technologi i narzędzi realizując swoje projekty</p>
+        {% for skill in skills %}
+            <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center mx-2 my-3 skill-card">
+                <img src="{{ skill.svg.url }}" class="img-fluid w-50 h-50">
+                <div class="skill-card-text fw-bold">{{ skill.name }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+<!-- Projects -->
+<div class="container my-5">
     <h2 class="pb-2 fw-bold display-4">Projekty</h2>
-    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-        <div class="col">
-            <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
-                 style="background-image: url('{% static 'www/img/project-cv-img.jpg' %}'); background-size: cover; background-">
-                <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                    <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Portfolio</h3>
+    <p class="fs-4">Moje aktualne i przeszłe projekty</p>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-4 py-5">
+        {% for project in projects %}
+            <a href="{{ project.url }}" class="text-decoration-none">
+            <div class="col">
+                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow border-0"
+                     style="background-image: url('{{ project.image.url }}'); background-size: cover; background-">
+                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ project.name }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+            </a>
+        {% endfor %}
     </div>
 </div>
 <!--CV -->
@@ -70,11 +90,13 @@
             <h1 class="display-4 fw-bold lh-1 mb-3">CV</h1>
             <p class="fs-4">Zastanawiasz się, czy możemy współpracować? Sprawdź moje CV i zobacz, co mogę Ci
                 zaoferować.</p>
-            <button id="btn-download-cv" type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Pobierz CV
-            </button>
+            <a href="{% url 'download-cv' %}">
+                <button id="btn-download-cv" type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Pobierz CV
+                </button>
+            </a>
         </div>
         <div class="col-md-6 col-lg-4">
-            <img src="{% static 'www/img/CV.JPG' %}" class="img-fluid shadow ">
+            <img id="cv-photo" src="{% static 'www/img/CV.JPG' %}" class="img-fluid shadow">
         </div>
     </div>
 </div>
@@ -95,9 +117,10 @@
             <div class="col-6 col-md-2 mb-3">
                 <h5>Znajdź mnie</h5>
                 <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><i
+                    <li class="nav-item mb-2"><a href="https://www.linkedin.com/in/dominik-ciupa/"
+                                                 class="nav-link p-0 text-muted"><i
                             class="bi bi-linkedin px-1"></i>LinkedIn</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted"><i
+                    <li class="nav-item mb-2"><a href="https://github.com/rapt8r" class="nav-link p-0 text-muted"><i
                             class="bi bi-github px-1"></i>Github</a></li>
                 </ul>
             </div>
@@ -126,7 +149,6 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
 <script src="{% static 'www/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'www/js/anime.js' %}"></script>
-<script src="{% static 'www/js/confetti.min.js' %}"></script>
 <script src="{% static 'www/js/animations.js' %}"></script>
 </body>
 </html>

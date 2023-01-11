@@ -13,3 +13,65 @@
 .saturation-0 {
     filter: saturate(0%) blur(2px);
 }
+
+#cv-photo {
+    transition-duration: 125ms;
+}
+
+#cv-photo:hover {
+    transition-duration: 250ms;
+    transform: scale(1.025, 1.025);
+}
+.skill-card-text {
+    height: 0;
+    opacity: 0;
+    transition-duration: 125ms;
+}
+.skill-card {
+    transition-duration: 125ms;
+    width: 200px;
+    height: 200px;
+}
+.skill-card:hover {
+    transition-duration: 250ms;
+    height: 220px;
+    width: 220px;
+}
+.contact-card {
+    transition-duration: 125ms;
+    width: 400px;
+    height: 200px;
+}
+.contact-card:hover {
+    transition-duration: 250ms;
+    height: 220px;
+    width: 480px;
+}
+.skill-card:hover > .skill-card-text {
+    opacity: 100;
+    transition-duration: 125ms;
+}
+.download-status {
+    transition-duration: 1000ms;
+    opacity: 100%;
+    visibility: visible;
+}
+.download-status-invisible {
+    transition-duration: 1000ms;
+    opacity: 0%;
+    visibility: hidden;
+}
+#heart-icon {
+    animation: beatingHeart 0.5s ease-in-out 0s infinite alternate forwards;
+}
+@keyframes beatingHeart {
+	0% {
+		transform: scale(0.95);
+        filter: saturate(90%);
+	}
+
+	100% {
+		transform: scale(1);
+        filter: saturate(100%);
+	}
+}
