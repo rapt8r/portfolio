@@ -17,9 +17,15 @@ from django.contrib import admin
 from django.urls import path
 from www.views import IndexPage, ProjectPage, DownloadCVPage
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from .sitemaps import StaticSitemap
 from django.conf import settings
+sitemaps = {
+    'static': StaticSitemap,
+}
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexPage.as_view(), name='index-page'),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     path('download-cv/', DownloadCVPage.as_view(), name='download-cv'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -29,13 +29,13 @@
 }
 .skill-card {
     transition-duration: 125ms;
-    width: 200px;
-    height: 200px;
+    width: 160px;
+    height: 160px;
 }
 .skill-card:hover {
     transition-duration: 250ms;
-    height: 220px;
-    width: 220px;
+    height: 180px;
+    width: 180px;
 }
 .contact-card {
     transition-duration: 125ms;
