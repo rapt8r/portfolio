@@ -15,8 +15,8 @@ class IndexPage(TemplateView):
         return self.render_to_response(context)
 
 
-class ProjectPage(TemplateView):
-    template_name = 'www/project.html'
+class ContactPage(TemplateView):
+    template_name = 'www/contact.html'
 
 class DownloadCVPage(TemplateView):
     template_name = 'www/download-cv.html'

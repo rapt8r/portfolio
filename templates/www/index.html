@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
+<!--Alert -->
+<div class="alert alert-danger position-fixed top-0 translate-middle-x start-50 my-5 fw-bold" role="alert" style="z-index: 500">
+  Strona którą widzisz jest w fazie tworzenia, mogą występować błędy
+</div>
 <!--Hero section -->
 <div class="container vh-100 d-flex align-items-center">
     <div class="row align-items-center">
@@ -23,7 +27,7 @@
             <i id="waving-hand-icon" class="fst-normal display-1 d-none d-md-inline-flex py-2">👋</i>
             <h1 class="display-4 fw-bold lh-1 mb-3">Cześć, nazywam się <br><span>Dominik Ciupa</span></h1>
             <p class="fs-4">Jestem Junior Python Developerem szukającym pracy w świecie I.T.</p>
-            <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Poznaj mnie</button>
+            <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0 ">Poznaj mnie</button>
         </div>
         <div class="col-8 col-md-6 mx-auto">
             <img id='hero-image' src="{% static 'www/img/hero-image.png' %}" class="img-fluid">
@@ -53,7 +57,7 @@
 </div>
 <!-- Skills -->
 <div class="container my-5">
-    <div class="row justify-content-center justify-content-md-start">
+    <div class="row justify-content-center justify-content-sm-start">
         <h2 class="pb-2 fw-bold display-4">Umiejętności</h2>
         <p class="fs-4">Używam tych technologi i narzędzi realizując swoje projekty</p>
         {% for skill in skills %}
@@ -71,14 +75,14 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-4 py-5">
         {% for project in projects %}
             <a href="{{ project.url }}" class="text-decoration-none">
-            <div class="col">
-                <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow border-0"
-                     style="background-image: url('{{ project.image.url }}'); background-size: cover; background-">
-                    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                        <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ project.name }}</h3>
+                <div class="col">
+                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow border-0"
+                         style="background-image: url('{{ project.image.url }}'); background-size: cover; background-">
+                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ project.name }}</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
             </a>
         {% endfor %}
     </div>
@@ -100,46 +104,32 @@
         </div>
     </div>
 </div>
-<!--Socials -->
-<div class="container">
-    <footer class="py-5">
-        <div class="row">
-            <div class="col-6 col-md-2 mb-3">
-                <h5>Skróty</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Kontakt</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Projekty</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">CV</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">O mnie</a></li>
-                </ul>
+<!--Footer -->
+<div class="container-fluid py-5">
+    <footer>
+        <div class="row flex-fill">
+            <div class="col-md-5 col-xl-6 py-5 px-5 d-flex justify-content-center align-items-center flex-column text-center typewriter">
+                <h2 class="display-4 fw-bold py-2">Masz pytanie?</h2>
+                <img src="{% static 'www/svg/3arrows.svg' %}" class="img-fluid d-none d-md-block">
             </div>
+            <div class="col-md-7 col-xl-6 bg-primary text-white rounded-3 px-5">
+                <div class="py-5 d-flex flex-column fs-4">
+                    <h1 class="fw-bold display-4 ty">Kontakt</h1>
+                    <p class="lh-1">Skontaktuj się ze mną</p>
+                    <div class="mt-5">
+                        <div class="my-2"><i class="bi bi-geo-alt-fill"></i> Łódź</div>
+                        <div class="my-2"><a href="mailto:dominikciupa3@gmail.com" class="text-decoration-none text-reset"><i class="bi bi-envelope-fill"></i> dominikciupa3@gmail.com</a></div>
+                        <div class="my-2"><a href="tel:600619556" class="text-decoration-none text-reset"><i class="bi bi-telephone-fill"></i> 600 619 556</a></div>
 
-            <div class="col-6 col-md-2 mb-3">
-                <h5>Znajdź mnie</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="https://www.linkedin.com/in/dominik-ciupa/"
-                                                 class="nav-link p-0 text-muted"><i
-                            class="bi bi-linkedin px-1"></i>LinkedIn</a></li>
-                    <li class="nav-item mb-2"><a href="https://github.com/rapt8r" class="nav-link p-0 text-muted"><i
-                            class="bi bi-github px-1"></i>Github</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-5 offset-md-2 mb-3">
-                <form>
-                    <h5>Kontakt</h5>
-                    <p>Monthly digest of what's new and exciting from us.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                        <label for="newsletter1" class="visually-hidden">Email address</label>
-                        <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                        <button class="btn btn-primary" type="button">Subscribe</button>
                     </div>
-                </form>
+                    <div class="mt-4 d-flex flex-row fs-2">
+                        <a href="https://www.linkedin.com/in/dominik-ciupa/" class="text-decoration-none text-reset"><i
+                                class="bi bi-linkedin me-3"></i></a>
+                        <a href="https://www.github.com/rapt8r" class="text-decoration-none text-reset"><i
+                                class="bi bi-github me-3"></i></a>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-            <p>&copy; 2023 Dominik Ciupa</p>
         </div>
     </footer>
 </div>
@@ -150,5 +140,6 @@
 <script src="{% static 'www/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'www/js/anime.js' %}"></script>
 <script src="{% static 'www/js/animations.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 </body>
 </html>

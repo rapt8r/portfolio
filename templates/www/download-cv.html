@@ -22,11 +22,11 @@
         <div class="col-md-6 text-center text-md-start">
             <i id="heart-icon" class="fst-normal display-1 d-inline-flex py-2">❤</i>
             <h1 class="display-4 fw-bold lh-1 mb-3">Dziękuję</h1>
-            <p class="fs-4">za czas poświęcony na analizowanie mojego CV, którego pobieranie właśnie się rozpoczęło</p>
+            <p id="description" class="fs-4">za czas poświęcony na analizowanie mojego CV, którego pobieranie właśnie się rozpoczęło</p>
             <a href="{% url 'index-page' %}"><button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Wróć na stronę główną</button></a>
         </div>
-        <div class="col-md-6">
-
+        <div class="col-md-4 mx-auto">
+            <img src="{% static 'www/svg/cv-ilustration.svg' %}" class="img-fluid ">
         </div>
     </div>
     <div id="download-status" class="alert alert-success position-fixed bottom-0 start-0 m-5 fs-6"></div>
@@ -38,7 +38,8 @@
 <script src="{% static 'www/js/js-file-downloader.js' %}"></script>
 </body>
 <script>
-    const DEBUG = true;
+    const DEBUG = false;
+    description = document.getElementById('description')
     if (!DEBUG) {
         //Get the download status element
         download_status = document.getElementById('download-status')
@@ -58,6 +59,7 @@
         }).then(function () {
                 //Show download complete status and hide element
                 download_status.innerHTML = 'CV zostało pobrane! <i class="bi bi-check-lg"></i>'
+                description.innerHTML = 'za czas poświęcony na analizowanie mojego CV, którego pobieranie się skończyło'
                 setTimeout(() => {
                     download_status.classList.add('download-status-invisible');
                 }, 5000);

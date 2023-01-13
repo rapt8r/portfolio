@@ -75,3 +75,7 @@
         filter: saturate(100%);
 	}
 }
+.contact-icon {
+    width: 4rem;
+    height: 4rem;
+}
