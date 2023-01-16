@@ -22,11 +22,14 @@
         <div class="col-md-6 text-center text-md-start">
             <i id="heart-icon" class="fst-normal display-1 d-inline-flex py-2">❤</i>
             <h1 class="display-4 fw-bold lh-1 mb-3">Dziękuję</h1>
-            <p id="description" class="fs-4">za czas poświęcony na analizowanie mojego CV, którego pobieranie właśnie się rozpoczęło</p>
-            <a href="{% url 'index-page' %}"><button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Wróć na stronę główną</button></a>
+            <p id="description" class="fs-4">za czas poświęcony na analizowanie mojego CV, którego pobieranie właśnie
+                się rozpoczęło</p>
+            <a href="{% url 'index-page' %}">
+                <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Wróć na stronę główną</button>
+            </a>
         </div>
         <div class="col-md-4 mx-auto">
-            <img src="{% static 'www/svg/cv-ilustration.svg' %}" class="img-fluid ">
+            <img src="{% static 'www/img/cv.jpg' %}" class="img-fluid shadow-lg">
         </div>
     </div>
     <div id="download-status" class="alert alert-success position-fixed bottom-0 start-0 m-5 fs-6"></div>
@@ -36,9 +39,11 @@
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <script src="{% static 'www/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'www/js/js-file-downloader.js' %}"></script>
+<script src="{% static 'www/js/anime.js' %}"></script>
 </body>
 <script>
-    const DEBUG = false;
+
+    const DEBUG = true;
     description = document.getElementById('description')
     if (!DEBUG) {
         //Get the download status element

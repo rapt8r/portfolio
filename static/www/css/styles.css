@@ -79,3 +79,12 @@
     width: 4rem;
     height: 4rem;
 }
+.z-index-front * {
+    z-index: 100;
+}
+.z-index-back {
+    z-index: -100;
+}
+.opacity-5 {
+    opacity: 5%;
+}
