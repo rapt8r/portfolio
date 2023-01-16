@@ -1,147 +1,107 @@
+{% extends 'www/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dominik Ciupa - Junior Django Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="{% static 'www/css/bootstrap.css' %}">
+
+{% block meta %}
+    <meta name="description"
+          content="Hej, jestem początkującym programistą Python z frameworkiem Django, wpadnij i zobacz co mogę Ci zaoferować!">
+{% endblock %}
+
+{% block title %}Dominik Ciupa - Junior Django Developer{% endblock %}
+
+{% block custom_css %}
     <link rel="stylesheet" href="{% static 'www/css/styles.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-</head>
-<body>
-<!--Hero section -->
-<div class="container vh-100 d-flex align-items-center">
-    <div class="row align-items-center">
-        <div id="hero-text" class="col-md-6 text-center text-md-start">
-            <i id="waving-hand-icon" class="fst-normal display-1 d-none d-md-inline-flex py-2">👋</i>
-            <h1 class="display-4 fw-bold lh-1 mb-3">Cześć, nazywam się <br><span>Dominik Ciupa</span></h1>
-            <p class="fs-4">Jestem Junior Python Developerem szukającym pracy w świecie I.T.</p>
-            <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0 ">Poznaj mnie</button>
-        </div>
-        <div class="col-8 col-md-6 mx-auto">
-            <img id='hero-image' src="{% static 'www/img/hero-image.png' %}" class="img-fluid">
-        </div>
-    </div>
-</div>
-<!-- About me -->
-<div class="container d-flex align-items-center py-5">
-    <div class="row flex-row-reverse d-flex align-items-center">
-        <div class="col-md-6 text-md-start text-center">
-            <h1 class="display-4 fw-bold lh-1 mb-3">O mnie</h1>
-            <p class="fs-4">Uwielbiam poznawać nowe technologie i szukam wszelkich możliwości, żeby rozwijać swoje
-                umiejętności.
+{% endblock %}
 
-                Ukończyłem 8-miesięczny kurs Python od Podstaw organizowany przez Software Development Academy.
-                Dzięki
-                temu zdobyłem solidne podstawy programowania, a także poznałem różne narzędzia i metodykę pracy
-                zespołowej.</p>
-            <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Dowiedz się
-                więcej
-            </button>
-        </div>
-        <div class="col-md-6 justify-content-center d-flex">
-            <img src="{% static 'www/svg/about-me-ilustration.svg' %}" class="img-fluid w-75 h-75">
-        </div>
-    </div>
-</div>
-<!-- Skills -->
-<div class="container my-5">
-    <div class="row justify-content-center justify-content-sm-start">
-        <h2 class="pb-2 fw-bold display-4">Umiejętności</h2>
-        <p class="fs-4">Używam tych technologi i narzędzi realizując swoje projekty</p>
-        {% for skill in skills %}
-            <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center mx-2 my-3 skill-card">
-                <img src="{{ skill.svg.url }}" class="img-fluid w-50 h-50">
-                <div class="skill-card-text fw-bold">{{ skill.name }}</div>
+{% block body %}
+    <!--Hero section -->
+    <div class="container vh-100 d-flex align-items-center">
+        <div class="row align-items-center">
+            <div id="hero-text" class="col-md-6 text-center text-md-start">
+                <i id="waving-hand-icon" class="fst-normal display-1 d-none d-md-inline-flex py-2">👋</i>
+                <h1 class="display-4 fw-bold lh-1 mb-3">Cześć, nazywam się <br><span>Dominik Ciupa</span></h1>
+                <p class="fs-4">Jestem Junior Python Developerem szukającym pracy w świecie I.T.</p>
+                <button type="button" class="btn btn-primary disabled btn-lg mb-3 mb-md-0 ">Poznaj mnie</button>
             </div>
-        {% endfor %}
+            <div class="col-8 col-md-6 mx-auto">
+                <img id='hero-image' src="{% static 'www/img/hero-image.png' %}" class="img-fluid">
+            </div>
+        </div>
     </div>
-</div>
-<!-- Projects -->
-<div class="container my-5">
-    <h2 class="pb-2 fw-bold display-4">Projekty</h2>
-    <p class="fs-4">Moje aktualne i przeszłe projekty</p>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-4 py-5">
-        {% for project in projects %}
-            <a href="{{ project.url }}" class="text-decoration-none">
-                <div class="col">
-                    <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow border-0"
-                         style="background-image: url('{{ project.image.url }}'); background-size: cover; background-">
-                        <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                            <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ project.name }}</h3>
+    <!-- About me -->
+    <div class="container d-flex align-items-center py-5">
+        <div class="row flex-row-reverse d-flex align-items-center">
+            <div class="col-md-6 text-md-start text-center">
+                <h1 class="display-4 fw-bold lh-1 mb-3">Kurs</h1>
+                <p class="fs-4">Uwielbiam poznawać nowe technologie i szukam wszelkich możliwości, żeby rozwijać swoje
+                    umiejętności.
+
+                    Ukończyłem 8-miesięczny kurs Python od Podstaw organizowany przez Software Development Academy.
+                    Dzięki
+                    temu zdobyłem solidne podstawy programowania, a także poznałem różne narzędzia i metodykę pracy
+                    zespołowej.
+                </p>
+                    <a href="https://app.diplomasafe.com/pl-PL/diploma/d5979688b5317bc0bd1e23c3a2754e6d3952f80fa" class="text-decoration-none text-reset"><button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Zobacz certyfikat</button></a>
+            </div>
+            <div class="col-md-6 justify-content-center d-flex">
+                <img src="{% static 'www/svg/about-me-ilustration.svg' %}" class="img-fluid w-75 h-75">
+            </div>
+        </div>
+    </div>
+    <!-- Skills -->
+    <div class="container my-5">
+        <div class="row justify-content-center justify-content-sm-start">
+            <h2 class="pb-2 fw-bold display-4">Umiejętności</h2>
+            <p class="fs-4">Używam tych technologi i narzędzi realizując swoje projekty</p>
+            {% for skill in skills %}
+                <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center mx-2 my-3 skill-card">
+                    <img src="{{ skill.svg.url }}" class="img-fluid w-50 h-50">
+                    <div class="skill-card-text fw-bold">{{ skill.name }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Projects -->
+    <div class="container my-5">
+        <h2 class="pb-2 fw-bold display-4">Projekty</h2>
+        <p class="fs-4">Moje aktualne i przeszłe projekty</p>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-4 py-5">
+            {% for project in projects %}
+                <a href="{{ project.url }}" class="text-decoration-none">
+                    <div class="col">
+                        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow border-0"
+                             style="background-image: url('{{ project.image.url }}'); background-size: cover">
+                            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ project.name }}</h3>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        {% endfor %}
-    </div>
-</div>
-<!--CV -->
-<div class="container d-flex align-items-center py-5">
-    <div class="row flex-row d-flex align-items-center flex-row-reverse gx-5">
-        <div class="col-md-6 col-lg-8 text-md-start text-center">
-            <h1 class="display-4 fw-bold lh-1 mb-3">CV</h1>
-            <p class="fs-4">Zastanawiasz się, czy możemy współpracować? Sprawdź moje CV i zobacz, co mogę Ci
-                zaoferować.</p>
-            <a href="{% url 'download-cv' %}">
-                <button id="btn-download-cv" type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Pobierz CV
-                </button>
-            </a>
-        </div>
-        <div class="col-md-6 col-lg-4">
-            <img id="cv-photo" src="{% static 'www/img/cv.jpg' %}" class="img-fluid shadow">
+                </a>
+            {% endfor %}
         </div>
     </div>
-</div>
-<!--Footer -->
-<div class="container-fluid py-5">
-    <footer>
-        <div class="row flex-fill gx-0">
-            <div class="col-md-5 col-xl-6 py-5 px-5 d-flex justify-content-center align-items-center flex-column text-center typewriter">
-                <h2 class="display-4 fw-bold py-2">Masz pytanie?</h2>
-                <img src="{% static 'www/svg/3arrows.svg' %}" class="img-fluid d-none d-md-block">
+    <!--CV -->
+    <div class="container d-flex align-items-center py-5">
+        <div class="row flex-row d-flex align-items-center flex-row-reverse gx-5">
+            <div class="col-md-6 col-lg-8 text-md-start text-center">
+                <h1 class="display-4 fw-bold lh-1 mb-3">CV</h1>
+                <p class="fs-4">Zastanawiasz się, czy możemy współpracować? Sprawdź moje CV i zobacz, co mogę Ci
+                    zaoferować.</p>
+                <a href="{% url 'download-cv' %}">
+                    <button id="btn-download-cv" type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Pobierz CV
+                    </button>
+                </a>
             </div>
-            <div class="col-md-7 col-xl-6 bg-primary text-white rounded-3 position-relative overflow-hidden">
-                <img src="{% static 'www/svg/contact-bg.svg' %}" class="img-fluid position-absolute opacity-5">
-                <div class="py-5 d-flex flex-column fs-4 px-5 z-index-front text-nowrap">
-                    <h1 class="fw-bold display-4">Kontakt</h1>
-                    <p class="lh-1">Skontaktuj się ze mną</p>
-                    <div class="mt-5">
-                        <div class="my-2"><i class="bi bi-geo-alt-fill"></i> Łódź</div>
-                        <div class="my-2"><a href="mailto:dominikciupa3@gmail.com"
-                                             class="text-decoration-none text-reset"><i
-                                class="bi bi-envelope-fill"></i>
-                            dominikciupa3@gmail.com</a></div>
-                        <div class="my-2"><a href="tel:600619556" class="text-decoration-none text-reset"><i
-                                class="bi bi-telephone-fill"></i> 600 619 556</a></div>
+            <div class="col-md-6 col-lg-4">
+                <img id="cv-photo" src="{% static 'www/img/cv.jpg' %}" class="img-fluid shadow">
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
-                    </div>
-                    <div class="mt-4 d-flex flex-row fs-2">
-                        <a href="https://www.linkedin.com/in/dominik-ciupa/"
-                           class="text-decoration-none text-reset"><i
-                                class="bi bi-linkedin me-3"></i></a>
-                        <a href="https://www.github.com/rapt8r" class="text-decoration-none text-reset"><i
-                                class="bi bi-github me-3"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>
-<!-- Including Bootstrap JS (with its jQuery dependency) so that dynamic components work -->
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"
-        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-<script src="{% static 'www/js/bootstrap.min.js' %}"></script>
-<script src="{% static 'www/js/anime.js' %}"></script>
-<script src="{% static 'www/js/animations.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-</body>
-</html>
+{% block custom_js %}
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    <script src="{% static 'www/js/anime.js' %}"></script>
+    <script src="{% static 'www/js/animations.js' %}"></script>
+{% endblock %}

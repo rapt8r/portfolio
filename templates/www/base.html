@@ -27,52 +27,44 @@
 {% block body %}
 
 {% endblock %}
-<!--Socials -->
-<div class="container">
-    <footer class="py-5">
-        <div class="row">
-            <div class="col-6 col-md-2 mb-3">
-                <h5>Skróty</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Kontakt</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Projekty</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">CV</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">O mnie</a></li>
-                </ul>
+<!--Footer -->
+<div class="container-fluid py-5">
+    <footer>
+        <div class="row flex-fill gx-0">
+            <div class="col-md-5 col-xl-6 py-5 px-5 d-flex justify-content-center align-items-center flex-column text-center typewriter">
+                <h2 class="display-4 fw-bold py-2">Masz pytanie?</h2>
+                <img src="{% static 'www/svg/3arrows.svg' %}" class="img-fluid d-none d-md-block">
             </div>
+            <div class="col-md-7 col-xl-6 bg-primary text-white rounded-3 position-relative overflow-hidden">
+                <img src="{% static 'www/svg/contact-bg.svg' %}" class="img-fluid position-absolute opacity-5">
+                <div class="py-5 d-flex flex-column fs-4 px-5 z-index-front text-nowrap">
+                    <h1 class="fw-bold display-4">Kontakt</h1>
+                    <p class="lh-1">Skontaktuj się ze mną</p>
+                    <div class="mt-5">
+                        <div class="my-2"><i class="bi bi-geo-alt-fill"></i> Łódź</div>
+                        <div class="my-2"><a href="mailto:dominikciupa3@gmail.com"
+                                             class="text-decoration-none text-reset"><i
+                                class="bi bi-envelope-fill"></i>
+                            dominikciupa3@gmail.com</a></div>
+                        <div class="my-2"><a href="tel:600619556" class="text-decoration-none text-reset"><i
+                                class="bi bi-telephone-fill"></i> 600 619 556</a></div>
 
-            <div class="col-6 col-md-2 mb-3">
-                <h5>Znajdź mnie</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="https://www.linkedin.com/in/dominik-ciupa/"
-                                                 class="nav-link p-0 text-muted"><i
-                            class="bi bi-linkedin px-1"></i>LinkedIn</a></li>
-                    <li class="nav-item mb-2"><a href="https://github.com/rapt8r" class="nav-link p-0 text-muted"><i
-                            class="bi bi-github px-1"></i>Github</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-5 offset-md-2 mb-3">
-                <form>
-                    <h5>Kontakt</h5>
-                    <p>Monthly digest of what's new and exciting from us.</p>
-                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                        <label for="newsletter1" class="visually-hidden">Email address</label>
-                        <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                        <button class="btn btn-primary" type="button">Subscribe</button>
                     </div>
-                </form>
+                    <div class="mt-4 d-flex flex-row fs-2">
+                        <a href="https://www.linkedin.com/in/dominik-ciupa/"
+                           class="text-decoration-none text-reset"><i
+                                class="bi bi-linkedin me-3"></i></a>
+                        <a href="https://www.github.com/rapt8r" class="text-decoration-none text-reset"><i
+                                class="bi bi-github me-3"></i></a>
+                    </div>
+                </div>
             </div>
-        </div>
-
-        <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-            <p>&copy; 2023 Dominik Ciupa</p>
         </div>
     </footer>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-
+<script src="{% static 'www/js/bootstrap.min.js' %}"></script>
 {% block custom_js %}
 
 {% endblock %}
