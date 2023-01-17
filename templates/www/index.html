@@ -25,7 +25,10 @@
                 <button type="button" class="btn btn-primary disabled btn-lg mb-3 mb-md-0 ">Poznaj mnie</button>
             </div>
             <div class="col-8 col-md-6 mx-auto">
-                <img id='hero-image' src="{% static 'www/img/hero-image.png' %}" class="img-fluid">
+                <picture>
+                    <source srcset="{% static 'www/img/hero-image.webp' %}" type="image/webp">
+                    <img id='hero-image' src="{% static 'www/img/hero-image.png' %}" class="img-fluid">
+                </picture>
             </div>
         </div>
     </div>
@@ -94,7 +97,10 @@
                 </a>
             </div>
             <div class="col-md-6 col-lg-4">
-                <img id="cv-photo" src="{% static 'www/img/cv.jpg' %}" class="img-fluid shadow">
+                <picture>
+                    <source srcset="{% static 'www/img/cv.webp' %}" type="image/webp">
+                    <img id="cv-photo" src="{% static 'www/img/cv.jpg' %}" class="img-fluid shadow">
+                </picture>
             </div>
         </div>
     </div>

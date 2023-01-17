@@ -29,7 +29,10 @@
             </a>
         </div>
         <div class="col-md-4 mx-auto">
-            <img src="{% static 'www/img/cv.jpg' %}" class="img-fluid shadow-lg">
+            <picture>
+                    <source srcset="{% static 'www/img/cv.webp' %}" type="image/webp">
+                    <img id="cv-photo" src="{% static 'www/img/cv.jpg' %}" class="img-fluid shadow">
+            </picture>
         </div>
     </div>
     <div id="download-status" class="alert alert-success position-fixed bottom-0 start-0 m-5 fs-6"></div>
