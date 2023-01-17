@@ -88,3 +88,16 @@
 .opacity-5 {
     opacity: 5%;
 }
+.rounded-50 {
+    border-radius: 50%;
+}
+#arrow-down {
+    transform: translateX(-50%);
+    transition-duration: 0.125s;
+    animation: ShakeUpAndDown 1s ease 0s infinite alternate none;
+}
+@keyframes ShakeUpAndDown {
+	100% {
+		transform: translateY(-10px) translateX(-50%);
+	}
+}

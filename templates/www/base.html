@@ -5,6 +5,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://dominikciupa.pl/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dominik Ciupa - Junior Django Developer">
+    <meta property="og:description"
+          content="Hej, jestem początkującym programistą Python z frameworkiem Django, wpadnij i zobacz co mogę Ci zaoferować!">
+    <meta property="og:image" content="{% url 'opengraph' %}">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="dominikciupa.pl">
+    <meta property="twitter:url" content="https://dominikciupa.pl/">
+    <meta name="twitter:title" content="Dominik Ciupa - Junior Django Developer">
+    <meta name="twitter:description"
+          content="Hej, jestem początkującym programistą Python z frameworkiem Django, wpadnij i zobacz co mogę Ci zaoferować!">
+    <meta name="twitter:image" content="{% url 'opengraph' %}">
     {% block meta %}
 
     {% endblock %}
@@ -56,9 +71,9 @@
                                 class="bi bi-linkedin me-3"></i></a>
                         <a href="https://www.github.com/rapt8r" class="text-decoration-none text-reset"><i
                                 class="bi bi-github me-3"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
     </footer>
 </div>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"

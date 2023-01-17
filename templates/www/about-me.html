@@ -1,30 +1,19 @@
 {% extends 'www/base.html' %}
 {% load static %}
-{% block title %}O mnie - Dominik Ciupa{% endblock %}
+{% block title %}O mnie{% endblock %}
 
 {% block custom_css %}
     <link rel="stylesheet" href="{% static 'www/css/styles.css' %}">
 {% endblock %}
 
 {% block body %}
-    <div class="container vh-100 d-flex align-items-center">
-        <div class="row flex-fill shadow-lg rounded-3">
-            <div class="col-md-5 col-xl-6 py-5 px-5 d-flex justify-content-center align-items-center flex-column text-center typewriter">
-                <h2 class="display-4 fw-bold py-2">Masz pytanie?</h2>
-                <img src="{% static 'www/svg/3arrows.svg' %}" class="img-fluid d-none d-md-block">
-            </div>
-            <div class="col-md-7 col-xl-6 bg-primary text-white rounded-3 px-5 ">
-                <div class="py-5 d-flex flex-column fl fs-4">
-                    <h1 class="fw-bold display-4 ty">Kontakt</h1>
-                    <p class="lh-1">Skontaktuj się ze mną</p>
-                    <address class="mt-5">
-                        <div class="my-2"><i class="bi bi-geo-alt-fill"></i> Łódź</div>
-                        <div class="my-2"><a href="mailto:dominikciupa3@gmail.com">Link text<i class="bi bi-envelope-fill"></i> dominikciupa3@gmail.com</a></div>
-                        <div class="my-2"><i class="bi bi-telephone-fill"></i> 600619556</div>
-                    </address>
-                    <div class="mt-4 d-flex flex-row fs-2">
-                        <a href="https://www.linkedin.com/in/dominik-ciupa/" class="text-decoration-none text-reset"><i class="bi bi-linkedin me-3"></i></a>
-                        <a href="https://www.github.com/rapt8r" class="text-decoration-none text-reset"><i class="bi bi-github me-3"></i></a>
+    <div class="container d-flex align-items-center py-5 shadow-lg">
+        <div class="row justify-content-center justify-content-lg-start">
+            <div class="col-6 col-md-6">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="{% static 'www/img/prof.webp' %}" class="img-fluid rounded-50">
+                    <div class="d-flex justify-content-center justify-content-md-start">
+                        <h1 class="fw-bold display-6 my-2">Dominik Ciupa</h1>
                     </div>
                 </div>
             </div>

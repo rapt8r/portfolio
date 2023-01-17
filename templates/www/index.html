@@ -16,13 +16,12 @@
 
 {% block body %}
     <!--Hero section -->
-    <div class="container vh-100 d-flex align-items-center">
+    <div class="container vh-100 d-flex align-items-center position-relative">
         <div class="row align-items-center">
             <div id="hero-text" class="col-md-6 text-center text-md-start">
                 <i id="waving-hand-icon" class="fst-normal display-1 d-none d-md-inline-flex py-2">👋</i>
                 <h1 class="display-4 fw-bold lh-1 mb-3">Cześć, nazywam się <br><span>Dominik Ciupa</span></h1>
                 <p class="fs-4">Jestem Junior Python Developerem szukającym pracy w świecie I.T.</p>
-                <button type="button" class="btn btn-primary disabled btn-lg mb-3 mb-md-0 ">Poznaj mnie</button>
             </div>
             <div class="col-8 col-md-6 mx-auto">
                 <picture>
@@ -30,6 +29,9 @@
                     <img id='hero-image' src="{% static 'www/img/hero-image.png' %}" class="img-fluid">
                 </picture>
             </div>
+        </div>
+        <div id="arrow-down" class="position-absolute py-3 bottom-0 start-50">
+            <img src="{% static 'www/svg/arrow.svg' %}">
         </div>
     </div>
     <!-- About me -->
@@ -45,7 +47,10 @@
                     temu zdobyłem solidne podstawy programowania, a także poznałem różne narzędzia i metodykę pracy
                     zespołowej.
                 </p>
-                    <a href="https://app.diplomasafe.com/pl-PL/diploma/d5979688b5317bc0bd1e23c3a2754e6d3952f80fa" class="text-decoration-none text-reset"><button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Zobacz certyfikat</button></a>
+                <a href="https://app.diplomasafe.com/pl-PL/diploma/d5979688b5317bc0bd1e23c3a2754e6d3952f80fa"
+                   class="text-decoration-none text-reset">
+                    <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Zobacz certyfikat</button>
+                </a>
             </div>
             <div class="col-md-6 justify-content-center d-flex">
                 <img src="{% static 'www/svg/about-me-ilustration.svg' %}" class="img-fluid w-75 h-75">
@@ -110,4 +115,14 @@
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
     <script src="{% static 'www/js/anime.js' %}"></script>
     <script src="{% static 'www/js/animations.js' %}"></script>
+    <script>
+        document.addEventListener("scroll", function () {
+            if (window.scrollY != 0) {
+                document.getElementById('arrow-down').style.opacity = '0';
+            }
+            else {
+                document.getElementById('arrow-down').style.opacity = '1';
+            }
+        })
+    </script>
 {% endblock %}
