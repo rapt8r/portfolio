@@ -93,11 +93,24 @@
 }
 #arrow-down {
     transform: translateX(-50%);
-    transition-duration: 0.125s;
+    transition-duration: 0.25s;
     animation: ShakeUpAndDown 1s ease 0s infinite alternate none;
 }
 @keyframes ShakeUpAndDown {
 	100% {
 		transform: translateY(-10px) translateX(-50%);
 	}
+}
+.card-project {
+    transition-duration: 0.125s;
+    backdrop-filter: brightness(70%);
+}
+.card-project:hover {
+    transition-duration: 0.25s;
+    backdrop-filter: brightness(50%);
+}
+
+.my-container {
+  margin-top: 8rem !important;
+  margin-bottom: 8rem !important;
 }

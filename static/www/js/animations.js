@@ -1,11 +1,3 @@
-if (Cookies.get('visited')) {
-    console.log('Odwiedzono')
-}
-else {
-    animated_div = document.getElementById('hero-text');
-    classlist = animated_div.classList.add('animate__animated');
-    classlist = animated_div.classList.add('animate__fadeInLeft');
-}
 let wavingHandShakeAnimation = anime({
     targets: '#waving-hand-icon',
     rotate: 25,
@@ -27,5 +19,3 @@ let wavingHandInAnimation = anime({
     },
 });
 wavingHandInAnimation.play();
-
-Cookies.set('visited', true)

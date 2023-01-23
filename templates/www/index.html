@@ -30,15 +30,15 @@
                 </picture>
             </div>
         </div>
-        <div id="arrow-down" class="position-absolute py-3 bottom-0 start-50">
+        <div id="arrow-down" class="position-absolute py-5 bottom-0 start-50">
             <img src="{% static 'www/svg/arrow.svg' %}">
         </div>
     </div>
     <!-- About me -->
-    <div class="container d-flex align-items-center py-5">
+    <div class="container d-flex align-items-center">
         <div class="row flex-row-reverse d-flex align-items-center">
             <div class="col-md-6 text-md-start text-center">
-                <h1 class="display-4 fw-bold lh-1 mb-3">Kurs</h1>
+                <h1 class="display-4 fw-bold lh-1 mb-3">Edukacja 📖</h1>
                 <p class="fs-4">Uwielbiam poznawać nowe technologie i szukam wszelkich możliwości, żeby rozwijać swoje
                     umiejętności.
 
@@ -58,9 +58,9 @@
         </div>
     </div>
     <!-- Skills -->
-    <div class="container my-5">
-        <div class="row justify-content-center justify-content-sm-start">
-            <h2 class="pb-2 fw-bold display-4">Umiejętności</h2>
+    <div class="container my-container">
+        <div class="row justify-content-center justify-content-sm-start text-md-start text-center">
+            <h2 class="pb-2 fw-bold display-4">Umiejętności 🚀</h2>
             <p class="fs-4">Używam tych technologi i narzędzi realizując swoje projekty</p>
             {% for skill in skills %}
                 <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center mx-2 my-3 skill-card">
@@ -71,17 +71,26 @@
         </div>
     </div>
     <!-- Projects -->
-    <div class="container my-5">
-        <h2 class="pb-2 fw-bold display-4">Projekty</h2>
+    <div class="container my-container text-md-start text-center">
+        <h2 class="pb-2 fw-bold display-4">Projekty 🚧</h2>
         <p class="fs-4">Moje aktualne i przeszłe projekty</p>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 align-items-stretch g-4 py-5 text-start">
             {% for project in projects %}
                 <a href="{{ project.url }}" class="text-decoration-none">
                     <div class="col">
-                        <div class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow border-0"
-                             style="background-image: url('{{ project.image.url }}'); background-size: cover">
-                            <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
-                                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">{{ project.name }}</h3>
+                        <div class="rounded-3" style="background-image: url('{{ project.image.url }}'); background-size: cover">
+                            <div class="card card-cover h-100 overflow-hidden bg-transparent rounded-3 border-0 card-project">
+                                <div class="d-flex flex-column h-100 p-5 pb-3 text-white">
+                                    <h3 class="mb-2 display-6 lh-1 fw-bold">{{ project.name }}</h3>
+                                    <p>
+                                        {{ project.short_desc }}
+                                    </p>
+                                    <div class="d-flex flex-row justify-content-end pb-2" style="filter: invert()">
+                                        {% for skill in project.skills.all %}
+                                            <img src="{{ skill.svg.url }}" class="m-1" style="height: 32px; width: 32px">
+                                        {% endfor %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -90,10 +99,10 @@
         </div>
     </div>
     <!--CV -->
-    <div class="container d-flex align-items-center py-5">
-        <div class="row flex-row d-flex align-items-center flex-row-reverse gx-5">
-            <div class="col-md-6 col-lg-8 text-md-start text-center">
-                <h1 class="display-4 fw-bold lh-1 mb-3">CV</h1>
+    <div class="container d-flex align-items-center my-container">
+        <div class="row flex-row d-flex align-items-center flex-row-reverse">
+            <div class="col-md-6 col-lg-8 ps-md-5 text-md-start text-center">
+                <h1 class="display-4 fw-bold lh-1 mb-3">CV 📄</h1>
                 <p class="fs-4">Zastanawiasz się, czy możemy współpracować? Sprawdź moje CV i zobacz, co mogę Ci
                     zaoferować.</p>
                 <a href="{% url 'download-cv' %}">
@@ -104,7 +113,7 @@
             <div class="col-md-6 col-lg-4">
                 <picture>
                     <source srcset="{% static 'www/img/cv.webp' %}" type="image/webp">
-                    <img id="cv-photo" src="{% static 'www/img/cv.jpg' %}" class="img-fluid shadow">
+                    <img id="cv-photo" src="{% static 'www/img/cv.jpg' %}" class="img-fluid rounded-3 shadow">
                 </picture>
             </div>
         </div>
@@ -119,8 +128,7 @@
         document.addEventListener("scroll", function () {
             if (window.scrollY != 0) {
                 document.getElementById('arrow-down').style.opacity = '0';
-            }
-            else {
+            } else {
                 document.getElementById('arrow-down').style.opacity = '1';
             }
         })
