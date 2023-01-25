@@ -19,21 +19,39 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
-
-
 # Values available for Vistor model in source field.
-SOURCE_VALUES = ('linkedin', 'cv')
+SOURCE_VALUES = ('linkedin', 'cv', 'olx', 'pracujpl', 'linkedinmsg')
 class Visitor(models.Model):
-    ip = models.CharField(max_length=32)
-    last_visit = models.DateTimeField(auto_now=True)
-    last_page = models.CharField(max_length=64, null=True)
-    info = models.TextField(null=True)
-    views = models.PositiveIntegerField(default=1)
-    source = models.CharField(max_length=16, null=True, verbose_name='First visit source')
+    ip = models.CharField(max_length=32, verbose_name='IP')
+    comment = models.CharField(max_length=32, null=True, blank=True)
+    source = models.CharField(max_length=16, verbose_name='First visit source')
     def __str__(self):
         return self.ip
-    class Meta:
-        ordering = ['-last_visit']
     def clean(self):
+        #Make sure that source field is correct
         if self.source.lower() not in SOURCE_VALUES:
             self.source = 'n/a'
+
+class Entry(models.Model):
+    visitor = models.ForeignKey(Visitor, on_delete=models.DO_NOTHING)
+    method = models.CharField(choices=(('POST', 'POST'),('GET', 'GET')), max_length=8)
+    datetime = models.DateTimeField(auto_now_add=True)
+    info = models.TextField(null=True)
+    path = models.CharField(max_length=64)
+
+    class Meta:
+        verbose_name_plural = 'Entries'
+    def __str__(self):
+        return f"{self.visitor} {self.method} {self.path}"
+    def set_info(self, request, visitor):
+        """
+        Sets the info for Entry object
+
+        :param request: HttpRequest
+        :param visitor: Visitor Object
+        :return:
+        """
+        self.method = request.method
+        self.info = request.headers
+        self.path = request.path
+        self.visitor = visitor
