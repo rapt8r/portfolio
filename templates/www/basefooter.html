@@ -1,21 +1,10 @@
 {% extends 'www/base.html' %}
 {% load static %}
-
-
-{% block meta %}
-    <meta name="description" content="Masz pytanie? Skontaktuj się ze mną!">
-{% endblock %}
-{% block title %}Kontakt - Dominik Ciupa{% endblock %}
-
-{% block custom_css %}
-    <link rel="stylesheet" href="{% static 'www/css/styles.css' %}">
-{% endblock %}
-
-{% block body %}
+{% block footer %}
     <!--Footer -->
-    <div class="container-fluid vh-100 d-flex align-items-center">
-        <footer class="w-100">
-            <div class="row flex-fill">
+    <div class="container-fluid py-5">
+        <footer>
+            <div class="row flex-fill gx-0">
                 <div class="col-md-5 col-xl-6 py-5 px-5 d-flex justify-content-center align-items-center flex-column text-center typewriter">
                     <h2 class="display-4 fw-bold py-2">Masz pytanie?</h2>
                     <img src="{% static 'www/svg/3arrows.svg' %}" class="img-fluid d-none d-md-block">
@@ -47,5 +36,8 @@
                 </div>
             </div>
         </footer>
+    </div>
+    <div class="container-fluid p-0">
+        <img src="{% static 'www/svg/waves.svg' %}" class="img-fluid">
     </div>
 {% endblock %}

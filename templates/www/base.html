@@ -46,56 +46,17 @@
 {% block body %}
 
 {% endblock %}
-<!--Footer -->
-<div class="container-fluid py-5">
-    <footer>
-        <div class="row flex-fill gx-0">
-            <div class="col-md-5 col-xl-6 py-5 px-5 d-flex justify-content-center align-items-center flex-column text-center typewriter">
-                <h2 class="display-4 fw-bold py-2">Masz pytanie?</h2>
-                <img src="{% static 'www/svg/3arrows.svg' %}" class="img-fluid d-none d-md-block">
-            </div>
-            <div class="col-md-7 col-xl-6 bg-primary text-white rounded-3 position-relative overflow-hidden">
-                <img src="{% static 'www/svg/contact-bg.svg' %}" class="img-fluid position-absolute opacity-5" style="object-fit: contain">
-                <div class="py-5 d-flex flex-column fs-4 px-5 z-index-front text-nowrap">
-                    <h1 class="fw-bold display-4">Kontakt</h1>
-                    <p class="lh-1">Skontaktuj się ze mną</p>
-                    <div class="mt-5">
-                        <div class="my-2"><i class="bi bi-geo-alt-fill"></i> Łódź</div>
-                        <div class="my-2"><a href="mailto:dominikciupa3@gmail.com"
-                                             class="text-decoration-none text-reset"><i
-                                class="bi bi-envelope-fill"></i>
-                            dominikciupa3@gmail.com</a></div>
-                        <div class="my-2"><a href="tel:600619556" class="text-decoration-none text-reset"><i
-                                class="bi bi-telephone-fill"></i> 600 619 556</a></div>
 
-                    </div>
-                    <div class="mt-4 d-flex flex-row fs-2">
-                        <a href="https://www.linkedin.com/in/dominik-ciupa/"
-                           class="text-decoration-none text-reset"><i
-                                class="bi bi-linkedin me-3"></i></a>
-                        <a href="https://www.github.com/rapt8r" class="text-decoration-none text-reset"><i
-                                class="bi bi-github me-3"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-</div>
-<div class="container-fluid p-0">
-    <img src="{% static 'www/svg/waves.svg' %}" class="img-fluid">
-</div>
+
+
+{% block footer %}
+
+{% endblock %}
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"
         integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-50C9R17YFP"></script>
 <script src="{% static 'www/js/bootstrap.min.js' %}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-50C9R17YFP');
-</script>
 {% block custom_js %}
 
 {% endblock %}

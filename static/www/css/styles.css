@@ -114,3 +114,44 @@
   margin-top: 8rem !important;
   margin-bottom: 8rem !important;
 }
+
+.display-error {
+    font-size: calc(10.725rem);
+}
+
+.main-gear {
+    position: relative;
+
+}
+.main-gear>img {
+    animation-name: main-gear;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+.small-gear {
+    transform: scale(50%) rotate(22deg);
+    top: 128px;
+    left: 129px;
+    position: absolute;
+
+}
+.small-gear>img {
+    animation-name: small-gear;
+    animation:
+            small-gear forwards 4s cubic-bezier(0, 0, 0.2, 1),
+            small-gear-slide 750ms 4.5s infinite cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+@keyframes main-gear {
+    100% {transform: rotate(730deg)}
+}
+@keyframes small-gear {
+    100% {transform: rotate(-1460deg)}
+}
+@keyframes small-gear-slide {
+    60% {rotate: 14deg}
+    80% {rotate: -1deg}
+    100% {}
+}

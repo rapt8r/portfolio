@@ -1,0 +1,34 @@
+{% extends 'www/base.html' %}
+{% load static %}
+
+{% block title %}404 - Nie znaleziono!{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'www/css/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+    <!--Hero section -->
+    <div class="container vh-100 d-flex align-items-center overflow-hidden">
+        <div class="row align-items-center text-center text-md-start">
+            <div class="col-md-6">
+                <h1 class="display-1 fw-bold mb-3 lh-1">Błąd</h1>
+                <p class="fs-4">Strona, której szukasz, zapewne przeprowadziła się do innego serwera, ale nie martw się,
+                    zostawiła link do strony głównej!</p>
+                <a href="{% url 'index-page' %}"
+                   class="text-decoration-none text-reset">
+                    <button type="button" class="btn btn-primary btn-lg mb-3 mb-md-0">Strona główna</button>
+                </a>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center">
+                <div class="main-gear">
+                    <span class="position-absolute top-50 start-50 display-error fw-bold translate-middle text-primary" style="z-index: 100;">404</span>
+                    <img src="{% static 'www/svg/gear.svg' %}">
+                    <div class="small-gear">
+                        <img src="{% static 'www/svg/gear.svg' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
