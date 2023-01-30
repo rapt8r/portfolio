@@ -25,6 +25,7 @@ class Visitor(models.Model):
     ip = models.CharField(max_length=32, verbose_name='IP')
     comment = models.CharField(max_length=32, null=True, blank=True)
     source = models.CharField(max_length=16, verbose_name='First visit source')
+    first_entry = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.ip
     def clean(self):
@@ -33,7 +34,7 @@ class Visitor(models.Model):
             self.source = 'n/a'
 
 class Entry(models.Model):
-    visitor = models.ForeignKey(Visitor, on_delete=models.DO_NOTHING)
+    visitor = models.ForeignKey(Visitor, on_delete=models.CASCADE, null=True)
     method = models.CharField(choices=(('POST', 'POST'),('GET', 'GET')), max_length=8)
     datetime = models.DateTimeField(auto_now_add=True)
     info = models.TextField(null=True)

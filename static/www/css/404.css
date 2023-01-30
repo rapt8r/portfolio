@@ -1,0 +1,45 @@
+.display-error {
+    font-size: calc(10.725rem);
+}
+
+.main-gear {
+    position: relative;
+
+}
+.main-gear>img {
+    animation-name: main-gear;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1)
+}
+.small-gear {
+    transform: scale(50%) rotate(22deg);
+    top: 128px;
+    left: 129px;
+    position: absolute;
+
+}
+.small-gear>img {
+    animation-name: small-gear;
+    animation: small-gear forwards 4s cubic-bezier(0, 0, 0.2, 1);
+}
+.exclamation-icon-404 {
+    top: 90px;
+    left: -30px;
+    position: absolute;
+    opacity: 0;
+    animation-name: exclamation-icon-404;
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-delay: 500ms;
+    animation-fill-mode: forwards;
+}
+@keyframes exclamation-icon-404 {
+   100% {opacity: 100%; top: 100px;}
+}
+@keyframes main-gear {
+    100% {transform: rotate(730deg)}
+}
+@keyframes small-gear {
+    100% {transform: rotate(-1460deg)}
+}

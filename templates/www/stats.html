@@ -1,1 +1,81 @@
 {% extends 'www/base.html' %}
+{% load static %}
+
+{% block title %}Statystyki strony{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'www/css/styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/Chart.min.css" rel="stylesheet"></link>
+{% endblock %}
+
+{% block body %}
+    <div class="container my-container">
+        <div class="row text-md-start text-center">
+            <h2 class="fw-bold display-4 pb-2">Statystyki <span id="liveStatus" class="fw-bold text-success"></span> 📈</h2>
+            <p id="live-status-refreshed"></p>
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="pb-2 fw-bold display-6">Wejścia</h2>
+                    <div class="row d-flex justify-content-center justify-content-sm-start mb-5">
+                        <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                             style="width: 200px; height: 200px">
+                            <div class="fs-6 fw-bold">Wszystkie wejścia dziś</div>
+                            <div id="allViewsCount" class="fs-1 fw-bold"></div>
+                            <div id="all-views-change" class="fs-6 fw-bold"></div>
+                        </div>
+                        <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                             style="width: 200px; height: 200px">
+                            <div class="fs-6 fw-bold">Wejścia Index dziś</div>
+                            <div id="IndexViewsCount" class="fs-1 fw-bold"></div>
+                        </div>
+                        <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                             style="width: 200px; height: 200px">
+                            <div class="fs-6 fw-bold">Wejścia CV dziś</div>
+                            <div id="CVViewsCount" class="fs-1 fw-bold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="pb-2 fw-bold display-6">Źródła</h2>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row d-flex justify-content-center justify-content-sm-start mb-5">
+                    <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                         style="width: 200px; height: 200px">
+                        <div class="fs-6 fw-bold">LinkedIn</div>
+                        <div class="fs-1 fw-bold source-value">{{ linkedin_visitors }}</div>
+                    </div>
+                    <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                         style="width: 200px; height: 200px">
+                        <div class="fs-6 fw-bold">LinkedIn MSG</div>
+                        <div class="fs-1 fw-bold source-value">{{ linkedinmsg_visitors }}</div>
+                    </div>
+                    <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                         style="width: 200px; height: 200px">
+                        <div class="fs-6 fw-bold">CV</div>
+                        <div class="fs-1 fw-bold source-value">{{ cv_visitors }}</div>
+                    </div>
+                    <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                         style="width: 200px; height: 200px">
+                        <div class="fs-6 fw-bold">OLX</div>
+                        <div class="fs-1 fw-bold source-value">{{ olx_visitors }}</div>
+                    </div>
+                    <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                         style="width: 200px; height: 200px">
+                        <div class="fs-6 fw-bold">Pracuj.pl</div>
+                        <div class="fs-1 fw-bold source-value">{{ pracujpl_visitors }}</div>
+                    </div>
+                    <div class="rounded-5 shadow-lg d-flex flex-column justify-content-center align-items-center text-center mx-2 my-3"
+                         style="width: 200px; height: 200px">
+                        <div class="fs-6 fw-bold">N/A</div>
+                        <div class="fs-1 fw-bold source-value">{{ na_visitors }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block custom_js %}
+    <script src="{% static 'www/js/stats.js' %}"></script>
+{% endblock %}

@@ -7,7 +7,7 @@ class EntryInline(admin.TabularInline):
     ordering = ('-datetime',)
 
 class VisitorAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'ip', 'source', 'entries_count', 'comment')
+    list_display = ('pk', 'ip', 'source', 'entries_count', 'comment', 'first_entry')
     readonly_fields = ('pk', 'ip', 'source', 'entries_count')
     inlines = [
         EntryInline,
